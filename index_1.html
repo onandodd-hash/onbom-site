@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ON:VOICE — 아이의 밤을 지키는 목소리 | 주식회사 온봄</title>
+<meta name="description" content="스크린 없이 잠드는 밤. 시니어 성우의 따뜻한 목소리로 아이의 잠들기 전 시간을 지키는 오디오 콘텐츠, ON:VOICE.">
+<meta property="og:title" content="ON:VOICE — 아이의 밤을 지키는 목소리">
+<meta property="og:description" content="카드 한 장이면, 화면 없이 이야기가 시작됩니다.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.onbomstudio.com">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root {
+    --night-0: #0e1030; --night-1: #1a1c4b; --night-2: #2c2a6b;
+    --dusk: #6b5bb5; --peach: #ffb98a; --peach-deep: #f09355;
+    --cream: #fff7ee; --ink: #2f2a3c; --ink-soft: #6d6580;
+    --card: #ffffff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; color: var(--ink); background: var(--cream); overflow-x: hidden; }
+
+  /* ---------- Nav ---------- */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px clamp(20px, 5vw, 56px);
+    background: rgba(14, 16, 48, 0.55); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  }
+  .nav-logo { font-weight: 800; font-size: 20px; letter-spacing: 0.5px; color: #fff; text-decoration: none; }
+  .nav-logo span { color: var(--peach); }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14.5px; font-weight: 500; transition: color .2s; }
+  .nav-links a:hover { color: var(--peach); }
+  @media (max-width: 640px) { .nav-links a:not(.nav-notice) { display: none; } }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative; min-height: 100svh;
+    display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+    background: linear-gradient(180deg, var(--night-0) 0%, var(--night-1) 40%, var(--night-2) 64%, #6b5bb5 80%, #a8759f 91%, #e8a37b 100%);
+    padding: 120px 24px 140px; overflow: hidden;
+  }
+  #product { background: linear-gradient(180deg, #e8a37b 0%, #f6d3b2 20%, var(--cream) 46%); }
+  .stars { position: absolute; inset: 0; pointer-events: none; }
+  .star { position: absolute; background: #fff; border-radius: 50%; opacity: .7; animation: twinkle 3.6s ease-in-out infinite; }
+  @keyframes twinkle { 0%,100% { opacity: .15; transform: scale(.8);} 50% { opacity: .85; transform: scale(1);} }
+  .moon {
+    position: absolute; top: 12%; right: 12%; width: 84px; height: 84px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #fff8e7, #ffe9b8 60%, #f5d489);
+    box-shadow: 0 0 60px 18px rgba(255, 233, 184, 0.25); animation: drift 9s ease-in-out infinite alternate;
+  }
+  @keyframes drift { from { transform: translateY(0);} to { transform: translateY(14px);} }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: #ffd9b8; border: 1px solid rgba(255, 217, 184, 0.4); background: rgba(255,255,255,0.06);
+    padding: 8px 18px; border-radius: 999px; font-size: 13.5px; font-weight: 600; letter-spacing: .3px; margin-bottom: 28px;
+  }
+  .hero h1 {
+    color: #fff; font-size: clamp(34px, 6.4vw, 64px); font-weight: 800; line-height: 1.25; letter-spacing: -1px; margin-bottom: 22px; word-break: keep-all;
+  }
+  .hero h1 em { font-style: normal; color: var(--peach); }
+  .hero p.sub { color: rgba(255,255,255,0.78); font-size: clamp(16px, 2.2vw, 19px); line-height: 1.8; max-width: 560px; word-break: keep-all; }
+  .hero .brand-line { margin-top: 42px; color: rgba(255,255,255,0.5); font-size: 13px; letter-spacing: 2.5px; text-transform: uppercase; }
+  .scroll-hint { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.55); font-size: 22px; animation: bob 1.8s ease-in-out infinite; }
+  @keyframes bob { 0%,100% { transform: translate(-50%, 0);} 50% { transform: translate(-50%, 8px);} }
+
+  /* ---------- Sections ---------- */
+  section { padding: clamp(72px, 10vw, 120px) 24px; }
+  .wrap { max-width: 980px; margin: 0 auto; }
+  .eyebrow { color: var(--peach-deep); font-weight: 700; font-size: 14px; letter-spacing: 2px; margin-bottom: 14px; }
+  h2.sec-title { font-size: clamp(26px, 4vw, 38px); font-weight: 800; letter-spacing: -0.5px; line-height: 1.35; margin-bottom: 18px; word-break: keep-all; }
+  p.sec-desc { color: var(--ink-soft); font-size: clamp(15.5px, 2vw, 17.5px); line-height: 1.9; max-width: 640px; word-break: keep-all; }
+
+  /* product cards visual */
+  .card-fan { display: flex; justify-content: center; margin: 56px 0 20px; height: 200px; position: relative; }
+  .pcard {
+    width: 132px; height: 188px; border-radius: 16px; position: absolute;
+    box-shadow: 0 14px 34px rgba(47, 42, 60, 0.18); border: 1px solid rgba(255,255,255,0.6);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+    font-weight: 700; color: #fff; font-size: 14px; transition: transform .35s ease;
+  }
+  .pcard small { font-weight: 500; opacity: .85; font-size: 11.5px; }
+  .pcard .ico { font-size: 34px; }
+  .pcard:nth-child(1) { background: linear-gradient(160deg, #7f74d9, #4a3f96); transform: rotate(-10deg) translateX(-130px); }
+  .pcard:nth-child(2) { background: linear-gradient(160deg, #f5a86e, #e07f3e); transform: rotate(-3deg) translateX(-44px) translateY(-8px); z-index: 2; }
+  .pcard:nth-child(3) { background: linear-gradient(160deg, #46b5a4, #2b8577); transform: rotate(5deg) translateX(44px); }
+  .pcard:nth-child(4) { background: linear-gradient(160deg, #2c2a6b, #191a45); transform: rotate(12deg) translateX(132px) translateY(6px); }
+  .card-fan:hover .pcard:nth-child(1) { transform: rotate(-12deg) translateX(-142px) translateY(-6px); }
+  .card-fan:hover .pcard:nth-child(2) { transform: rotate(-3deg) translateX(-46px) translateY(-16px); }
+  .card-fan:hover .pcard:nth-child(3) { transform: rotate(6deg) translateX(48px) translateY(-6px); }
+  .card-fan:hover .pcard:nth-child(4) { transform: rotate(14deg) translateX(140px); }
+
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 48px; }
+  .step {
+    background: var(--card); border-radius: 20px; padding: 30px 26px;
+    box-shadow: 0 6px 24px rgba(47, 42, 60, 0.07); border: 1px solid #f0e6d9;
+  }
+  .step .num { font-size: 13px; font-weight: 800; color: var(--peach-deep); letter-spacing: 1.5px; margin-bottom: 12px; }
+  .step .t { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+  .step p { color: var(--ink-soft); font-size: 14.5px; line-height: 1.75; word-break: keep-all; }
+
+  .mission { background: linear-gradient(180deg, #fff 0%, var(--cream) 100%); }
+  .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; margin-top: 48px; }
+  .pillar {
+    border-radius: 22px; padding: 36px 30px; color: #fff; position: relative; overflow: hidden;
+  }
+  .pillar.one { background: linear-gradient(150deg, var(--night-1), var(--night-2)); }
+  .pillar.two { background: linear-gradient(150deg, var(--peach-deep), #d9793a); }
+  .pillar .ico { font-size: 34px; margin-bottom: 16px; }
+  .pillar h3 { font-size: 20px; font-weight: 800; margin-bottom: 12px; word-break: keep-all; }
+  .pillar p { font-size: 14.5px; line-height: 1.8; opacity: .92; word-break: keep-all; }
+
+  .quote {
+    text-align: center; font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.6;
+    letter-spacing: -0.5px; color: var(--night-2); max-width: 760px; margin: 0 auto; word-break: keep-all;
+  }
+  .quote span { color: var(--peach-deep); }
+
+  /* notice */
+  .notice-sec { background: linear-gradient(180deg, #ffffff 0%, #f1ebf8 55%, #ddd5ee 100%); }
+  .notice-board {
+    margin-top: 36px; background: var(--cream); border: 1px solid #eaddcb; border-radius: 18px; padding: 34px 30px;
+  }
+  .notice-board .empty { color: #9a8b80; font-size: 15px; }
+  .notice-board table { width: 100%; border-collapse: collapse; display: none; }
+
+  footer { background: linear-gradient(180deg, #55497e 0%, var(--night-1) 40%, var(--night-0) 100%); color: rgba(255,255,255,0.65); padding: 72px 24px 64px; text-align: center; font-size: 13.5px; line-height: 2; }
+  footer .f-logo { font-weight: 800; font-size: 18px; color: #fff; margin-bottom: 14px; }
+  footer .f-logo span { color: var(--peach); }
+  footer a { color: var(--peach); text-decoration: none; }
+
+  /* reveal on scroll */
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.show { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">ON<span>:</span>VOICE</a>
+  <div class="nav-links">
+    <a href="#product">제품</a>
+    <a class="nav-notice" href="#notice">전자공고</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="stars" id="stars"></div>
+  <div class="moon"></div>
+  <div class="hero-badge">🌙 스크린 프리 오디오 콘텐츠</div>
+  <h1>화면은 끄고,<br><em>이야기</em>를 켜는 밤</h1>
+  <p class="sub">카드 한 장을 대면, 시니어 성우의 따뜻한 목소리가<br>아이의 잠들기&nbsp;전 시간을 채웁니다.<br>화면 없이, 광고 없이, 조용하게.</p>
+  <div class="brand-line">ON:VOICE by Onbom</div>
+  <div class="scroll-hint">▾</div>
+</header>
+
+<section id="product">
+  <div class="wrap">
+    <div class="eyebrow reveal">PRODUCT</div>
+    <h2 class="sec-title reveal">잠들기 전 한 장</h2>
+    <p class="sec-desc reveal">NFC 카드 20장 세트 — 수면·앰비언트 사운드 5장, 따뜻한 결말의 이야기 15장.<br>
+    아이가 직접 고른 카드 한 장이 그날 밤의 이야기가 됩니다.<br>
+    모든 이야기는 65세 이상 시니어 성우가 낭독합니다. AI 음성은 쓰지 않습니다.</p>
+    <div class="card-fan reveal">
+      <div class="pcard"><div class="ico">🌊</div>수면 사운드<small>Ambient</small></div>
+      <div class="pcard"><div class="ico">🦊</div>여우의 정원<small>Story</small></div>
+      <div class="pcard"><div class="ico">⭐</div>별을 세는 밤<small>Story</small></div>
+      <div class="pcard"><div class="ico">🌙</div>달빛 자장가<small>Sleep</small></div>
+    </div>
+  </div>
+</section>
+
+<section style="background: linear-gradient(180deg, var(--cream) 0%, #ffffff 100%);">
+  <div class="wrap">
+    <p class="quote reveal">카드 한 장의 밤,<br><span>이야기 하나</span>의 꿈.</p>
+  </div>
+</section>
+
+<section class="notice-sec" id="notice">
+  <div class="wrap">
+    <div class="eyebrow reveal">NOTICE</div>
+    <h2 class="sec-title reveal">전자공고</h2>
+    <p class="sec-desc reveal">주식회사 온봄의 법적 공고를 게시하는 공간입니다.</p>
+    <div class="notice-board reveal">
+      <p class="empty">현재 게시된 공고가 없습니다.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo">ON<span>:</span>VOICE</div>
+  주식회사 온봄 (Onbom Co., Ltd.)<br>
+  서울특별시 구로구 디지털로30길 28 (구로동, 마리오타워 827-29호)<br>
+  &copy; Onbom Co., Ltd. All rights reserved.
+</footer>
+
+<script>
+  // stars
+  const stars = document.getElementById('stars');
+  for (let i = 0; i < 70; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    const size = Math.random() * 2.2 + 0.8;
+    s.style.width = size + 'px'; s.style.height = size + 'px';
+    s.style.left = Math.random() * 100 + '%';
+    s.style.top = Math.random() * 70 + '%';
+    s.style.animationDelay = (Math.random() * 3.6) + 's';
+    stars.appendChild(s);
+  }
+  // reveal on scroll
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
